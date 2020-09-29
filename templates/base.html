@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">icoder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active{% block homeactive%} {% endblock homeactive%}">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item {% block aboutactive%} {% endblock aboutactive%}">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item {% block blogactive%} {% endblock blogactive%}">
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+        <li class="nav-item {% block contactactive%} {% endblock contactactive%}">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+      <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query"
+          id="query">
+        <button class="btn btn-outline-success m-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+
+      <!-- Button to trigger signup modal -->
+      <button type="button" class="btn btn-sucess mr-2" data-toggle="modal" data-target="#signupModal">
+        signup
+      </button>
+
+      <!-- Button to trigger signup modal -->
+      <button type="button" class="btn btn-sucess mr-2" data-toggle="modal" data-target="#loginModal">
+        login
+      </button>
+
+    </div>
+  </nav>
+  {% for message in messages%}
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor%}
+
+
+  <!-- signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" 77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sigupModal">signup Here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="Username">Username</label>
+              <input type="Username" class="form-control" id="username" name="Username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="Firstname">Firstname</label>
+              <input type="Firstname" class="form-control" id="Firstname" name="Firstname" placeholder="Firstname">
+            </div>
+            <div class="form-group">
+              <label for="Lastname">Lastname</label>
+              <input type="Lastname" class="form-control" id="Lastname" name="Lastname" placeholder="Lastname">
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email address</label>
+              <input type="Email" class="form-control" id="email" name="Email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="Password" class="form-control" id="Password" name="Password" placeholder="Password">
+            </div>
+
+            <button type="button" class="btn btn-primary">submit</button>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModal">login here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            
+
+            <div class="form-group">
+              <label for="Username">Username</label>
+              <input type="Username" class="form-control" id="username" name="Username" placeholder="Enter the valid usename">
+            </div>
+            
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="Password" class="form-control" id="Password" name="Password" placeholder="Enter the password">
+            </div>
+
+            <button type="button" class="btn btn-primary">submit</button>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% block body %}
+  {% endblock body%}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

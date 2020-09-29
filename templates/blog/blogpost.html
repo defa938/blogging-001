@@ -1,0 +1,13 @@
+{% extends  'base.html' %} <! this is comment extend the html file of  base.html-->
+{% block title %} blogpost {% endblock title %}
+{% block blogactive%} active {% endblock blogactive%}
+
+{% block body%}
+<div class="cotainer">
+        <h2 class="blog-post-title">{{Post.title}} </h2>
+        <p class="blog-post-meta">{{Post.timestamp}}<a href="#">{{Post.author}}</a></p>
+
+        <p>{{Post.content}}</p>
+        <hr>
+          </div>
+{% endblock body%}
